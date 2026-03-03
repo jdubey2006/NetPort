@@ -1,4 +1,4 @@
-import { X, ExternalLink, Github, Play } from "lucide-react";
+import { X, Github, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect } from "react";
 
@@ -51,6 +51,7 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
             className="w-full h-full object-cover"
           />
           <div className="netflix-gradient-overlay absolute inset-0" />
+
           <button
             onClick={onClose}
             className="absolute top-4 right-4 w-9 h-9 rounded-full bg-background/80 flex items-center justify-center hover:bg-background transition-colors"
@@ -62,13 +63,30 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
             <h2 className="font-display text-3xl md:text-5xl text-foreground tracking-wide mb-3">
               {project.title}
             </h2>
+
+            {/* WORKING BUTTONS WITH YOUR LINKS */}
             <div className="flex gap-2">
-              <Button variant="default" size="sm" className="gap-2">
-                <Play className="w-4 h-4 fill-current" /> Live Demo
-              </Button>
-              <Button variant="secondary" size="sm" className="gap-2">
-                <Github className="w-4 h-4" /> Source Code
-              </Button>
+              <a
+                href="https://netport-jeet-dubey-portfolio-ouqpt71y0-jdubey2006s-projects.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button variant="default" size="sm" className="gap-2">
+                  <Play className="w-4 h-4 fill-current" />
+                  Live Demo
+                </Button>
+              </a>
+
+              <a
+                href="https://github.com/jdubey2006/NetPort"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button variant="secondary" size="sm" className="gap-2">
+                  <Github className="w-4 h-4" />
+                  Source Code
+                </Button>
+              </a>
             </div>
           </div>
         </div>
@@ -78,19 +96,24 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
           <p className="text-foreground/80 text-base leading-relaxed">
             {project.description}
           </p>
+
           <p className="text-muted-foreground text-sm leading-relaxed">
-            This project showcases modern web development practices including responsive design,
-            performance optimization, and clean architecture. Built with attention to detail
-            and a focus on user experience.
+            This is a Netflix-themed developer portfolio built with Next.js 
+            and Tailwind CSS. It showcases projects, skills, and achievements
+            through a cinematic, binge-worthy UI experience—transforming a
+            traditional portfolio into an interactive streaming-style platform that highlights creativity, innovation, and technical expertise.
           </p>
 
+          {/* Tech Stack */}
           <div>
-            <h4 className="font-display text-lg text-foreground tracking-wide mb-2">TECH STACK</h4>
+            <h4 className="font-display text-lg text-foreground tracking-wide mb-2">
+              TECH STACK
+            </h4>
             <div className="flex flex-wrap gap-2">
               {project.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="text-sm px-3 py-1.5 rounded-sm bg-primary/15 text-primary font-medium border border-primary/20 hover:bg-primary/25 transition-colors cursor-default"
+                  className="text-sm px-3 py-1.5 rounded-sm bg-primary/15 text-primary font-medium border border-primary/20 hover:bg-primary/25 transition-colors"
                 >
                   {tag}
                 </span>
@@ -98,15 +121,23 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
             </div>
           </div>
 
+          {/* Project Info */}
           <div className="grid grid-cols-3 gap-4 pt-2">
             {[
-              { label: "Year", value: "2024" },
-              { label: "Role", value: "Full-Stack" },
+              { label: "Year", value: "2026" },
+              { label: "Role", value: "Student" },
               { label: "Status", value: "Completed" },
             ].map((item) => (
-              <div key={item.label} className="text-center p-3 rounded-sm bg-secondary/50">
-                <p className="text-muted-foreground text-xs uppercase tracking-wider">{item.label}</p>
-                <p className="text-foreground font-semibold mt-1">{item.value}</p>
+              <div
+                key={item.label}
+                className="text-center p-3 rounded-sm bg-secondary/50"
+              >
+                <p className="text-muted-foreground text-xs uppercase tracking-wider">
+                  {item.label}
+                </p>
+                <p className="text-foreground font-semibold mt-1">
+                  {item.value}
+                </p>
               </div>
             ))}
           </div>
